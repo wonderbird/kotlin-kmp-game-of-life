@@ -54,6 +54,10 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.7.1")
+        }
+        webMain.dependencies {
+            implementation(npm("@js-joda/timezone", "2.22.0"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
