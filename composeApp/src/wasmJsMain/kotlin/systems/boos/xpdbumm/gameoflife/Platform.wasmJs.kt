@@ -1,6 +1,6 @@
 package systems.boos.xpdbumm.gameoflife
 
-class WasmPlatform: Platform {
+class WasmPlatform : Platform {
     override val name: String = "Web with Kotlin/Wasm"
 }
 

@@ -23,25 +23,27 @@ fun App() {
     MaterialTheme {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .padding(20.dp)
-                .safeContentPadding()
-                .fillMaxSize(),
+            modifier =
+                Modifier
+                    .padding(20.dp)
+                    .safeContentPadding()
+                    .fillMaxSize(),
         ) {
             OutlinedTextField(
                 value = "  01234  \n0 ██    0\n1 █     1\n2       2\n3       3\n4       4\n  01234  ",
                 label = { Text("Universe") },
-                textStyle = TextStyle(
-                    fontFamily = FontFamily.Monospace,
-                    lineHeight = 1.em
-                ),
+                textStyle =
+                    TextStyle(
+                        fontFamily = FontFamily.Monospace,
+                        lineHeight = 1.em,
+                    ),
                 minLines = 7,
                 maxLines = 7,
-                onValueChange = { }
+                onValueChange = { },
             )
             Button(
                 onClick = { },
-                modifier = Modifier.padding(top = 10.dp)
+                modifier = Modifier.padding(top = 10.dp),
             ) {
                 Text("Next Generation")
             }
