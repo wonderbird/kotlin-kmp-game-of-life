@@ -9,6 +9,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
@@ -19,8 +23,20 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-private fun App() {
+fun App() {
     MaterialTheme {
+        var renderedUniverse by remember {
+            mutableStateOf(
+                """  01234  
+0 ██    0
+1 █     1
+2       2
+3       3
+4       4
+  01234  
+""",
+            )
+        }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier =
@@ -30,14 +46,7 @@ private fun App() {
                     .fillMaxSize(),
         ) {
             OutlinedTextField(
-                value = """  01234  
-                           0 ██    0
-                           1 █     1
-                           2       2
-                           3       3
-                           4       4
-                             01234  
-                           """,
+                value = renderedUniverse,
                 label = { Text("Universe") },
                 textStyle =
                     TextStyle(
