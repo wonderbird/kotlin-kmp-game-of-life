@@ -1,5 +1,6 @@
 root = true
 
+# Configured by Android Studio
 [*]
 charset = utf-8
 end_of_line = lf
@@ -9,5 +10,22 @@ insert_final_newline = false
 max_line_length = 100
 tab_width = 4
 
+# Adopted from
+# - https://pinterest.github.io/ktlint/latest/rules/configuration-ktlint/
+# - https://github.com/pinterest/ktlint/issues/2259
+# - https://github.com/JLLeitschuh/ktlint-gradle/issues/742
 [*.{kt,kts}]
 ktlint_code_style = ktlint_official
+ktlint_function_naming_ignore_when_annotated_with = Composable
+
+# Adopted from https://stackoverflow.com/questions/65057126/how-do-you-tell-ktlint-in-android-to-exclude-specific-paths-in-the-project
+[**/generated/**]
+ij_formatter_enabled = false
+ktlint = disabled
+
+# Adopted from https://stackoverflow.com/questions/57395287/how-to-disable-filename-in-ktlint
+[main.kt]
+ktlint_standard_filename = disabled # The name 'main.kt' is generated. I'd like to keep it as is.
+
+[composeApp/src/iosMain/kotlin/**/MainViewController.kt]
+ktlint_standard_function-naming = disabled
