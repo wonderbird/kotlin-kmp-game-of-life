@@ -1,3 +1,4 @@
+# Von Android Studio generiert
 *.iml
 .kotlin
 .gradle
@@ -17,6 +18,13 @@ captures
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 node_modules/
+
+############################################################################################
+# IMPORTANT: Rules at end of file                                                          #
+############################################################################################
+# When updating the generated rules, keep in mind that some explicit inclusion rules are   #
+# defined at the end of this file.                                                         #
+############################################################################################
 
 # Created by https://www.toptal.com/developers/gitignore/api/vim,java,linux,macos,gradle,kotlin,windows,intellij+all,androidstudio,visualstudiocode,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,java,linux,macos,gradle,kotlin,windows,intellij+all,androidstudio,visualstudiocode,node
@@ -542,3 +550,12 @@ obj/
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,java,linux,macos,gradle,kotlin,windows,intellij+all,androidstudio,visualstudiocode,node
+
+############################################################################################
+# IMPORTANT: Rules at end of file                                                          #
+############################################################################################
+# Keep these rules when updating the generated rules                                       #
+############################################################################################
+
+# Include the Jetpack Compose Rule into the repository
+!/**/ktlint-compose-*-all.jar
