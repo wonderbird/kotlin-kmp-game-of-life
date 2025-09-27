@@ -19,7 +19,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App() {
+private fun App() {
     MaterialTheme {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -30,7 +30,14 @@ fun App() {
                     .fillMaxSize(),
         ) {
             OutlinedTextField(
-                value = "  01234  \n0 ██    0\n1 █     1\n2       2\n3       3\n4       4\n  01234  ",
+                value = """  01234  
+                           0 ██    0
+                           1 █     1
+                           2       2
+                           3       3
+                           4       4
+                             01234  
+                           """,
                 label = { Text("Universe") },
                 textStyle =
                     TextStyle(
