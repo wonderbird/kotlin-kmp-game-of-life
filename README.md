@@ -1,6 +1,8 @@
 # Game of Life
 
-This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop (JVM).
+Conway's Game of Life as a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop (JVM).
+
+## Outline
 
 * [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
@@ -14,7 +16,13 @@ This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop (JVM
 * [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
   you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
 
-### Build and Run Android Application
+## Build and Run Tests on JVM
+
+```shell
+./gradlew jvmTest
+```
+
+## Build and Run Android Application
 
 To build and run the development version of the Android app, use the run configuration from the run widget
 in your IDE’s toolbar or build it directly from the terminal:
@@ -27,7 +35,7 @@ in your IDE’s toolbar or build it directly from the terminal:
   .\gradlew.bat :composeApp:assembleDebug
   ```
 
-### Build and Run Desktop (JVM) Application
+## Build and Run Desktop (JVM) Application
 
 To build and run the development version of the desktop app, use the run configuration from the run widget
 in your IDE’s toolbar or run it directly from the terminal:
@@ -40,7 +48,7 @@ in your IDE’s toolbar or run it directly from the terminal:
   .\gradlew.bat :composeApp:run
   ```
 
-### Build and Run Web Application
+## Build and Run Web Application
 
 To build and run the development version of the web app, use the run configuration from the run widget
 in your IDE's toolbar or run it directly from the terminal:
@@ -63,10 +71,26 @@ in your IDE's toolbar or run it directly from the terminal:
     .\gradlew.bat :composeApp:jsBrowserDevelopmentRun
     ```
 
-### Build and Run iOS Application
+## Build and Run iOS Application
 
 To build and run the development version of the iOS app, use the run configuration from the run widget
 in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+
+## Git Gamble
+
+[Git gamble](https://git-gamble.is-cool.dev/) is configured in [.envrc](.envrc).
+
+Before running `git gamble` for the first time, allow `direnv` to process the `.envrc` file:
+
+```shell
+direnv allow .
+```
+
+I usually run the linter and code formatter before git gamble:
+
+```shell
+ktlint --format && git gamble --green
+```
 
 ---
 
