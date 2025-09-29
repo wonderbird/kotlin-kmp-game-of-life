@@ -8,7 +8,7 @@ class UniverseViewTest {
     fun toUniverse_noAliveCells() {
         val aliveCells: MutableSet<Cell> = mutableSetOf()
 
-        val actual = aliveCells.toUniverse()
+        val actual = aliveCells.toUniverseUiState().universeAsText
 
         val expected =
             """
@@ -27,7 +27,7 @@ class UniverseViewTest {
     fun toUniverse_singleAliveCellInFirstRow() {
         val aliveCells: MutableSet<Cell> = mutableSetOf(Cell(0, 0))
 
-        val actual = aliveCells.toUniverse()
+        val actual = aliveCells.toUniverseUiState().universeAsText
 
         val expected =
             """
@@ -50,7 +50,7 @@ class UniverseViewTest {
                 Cell(1, 0),
             )
 
-        val actual = aliveCells.toUniverse()
+        val actual = aliveCells.toUniverseUiState().universeAsText
 
         val expected =
             """
@@ -76,7 +76,7 @@ class UniverseViewTest {
                 Cell(4, 4),
             )
 
-        val actual = aliveCells.toUniverse()
+        val actual = aliveCells.toUniverseUiState().universeAsText
 
         val expected =
             """

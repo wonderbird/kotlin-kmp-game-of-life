@@ -1,17 +1,10 @@
 package systems.boos.xpdbumm.gameoflife
 
-class UniverseView {
-    var aliveCells: MutableSet<Cell> =
-        mutableSetOf(
-            Cell(0, 0),
-            Cell(1, 0),
-            Cell(0, 1),
-        )
+data class UniverseUiState(
+    val universeAsText: String = "",
+)
 
-    fun asString(): String = aliveCells.toUniverse()
-}
-
-fun MutableSet<Cell>.toUniverse(): String {
+fun MutableSet<Cell>.toUniverseUiState(): UniverseUiState {
     val alive = "█"
     val dead = " "
     val sb2 = StringBuilder()
@@ -40,5 +33,5 @@ fun MutableSet<Cell>.toUniverse(): String {
     }
     sb.append("  01234  ")
 
-    return sb.toString()
+    return UniverseUiState(sb.toString())
 }

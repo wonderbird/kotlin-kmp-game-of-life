@@ -9,36 +9,22 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App() {
+fun App(viewModel: UniverseViewModel = viewModel { UniverseViewModel() }) {
     MaterialTheme {
-        var renderedUniverse by remember {
-            mutableStateOf(
-                """
-                  01234  
-                0 ██    0
-                1 █     1
-                2       2
-                3       3
-                4       4
-                  01234  
-                """.trimIndent(),
-            )
-        }
-        var universeView: UniverseView = UniverseView()
+        val uiState by viewModel.uiState.collectAsState()
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier =
@@ -48,7 +34,7 @@ fun App() {
                     .fillMaxSize(),
         ) {
             OutlinedTextField(
-                value = universeView.asString(),
+                value = uiState.universeAsText,
                 label = { Text("Universe") },
                 textStyle =
                     TextStyle(
@@ -61,7 +47,7 @@ fun App() {
                 onValueChange = { },
             )
             Button(
-                onClick = {},
+                onClick = { viewModel.goToNextGeneration() },
                 modifier = Modifier.padding(top = 10.dp),
             ) {
                 Text("Next Generation")
