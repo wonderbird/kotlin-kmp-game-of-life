@@ -27,16 +27,18 @@ fun App() {
     MaterialTheme {
         var renderedUniverse by remember {
             mutableStateOf(
-                """  01234  
-0 ██    0
-1 █     1
-2       2
-3       3
-4       4
-  01234  
-""",
+                """
+                  01234  
+                0 ██    0
+                1 █     1
+                2       2
+                3       3
+                4       4
+                  01234  
+                """.trimIndent(),
             )
         }
+        var universeView: UniverseView = UniverseView()
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier =
@@ -46,7 +48,7 @@ fun App() {
                     .fillMaxSize(),
         ) {
             OutlinedTextField(
-                value = renderedUniverse,
+                value = universeView.asString(),
                 label = { Text("Universe") },
                 textStyle =
                     TextStyle(
@@ -55,10 +57,11 @@ fun App() {
                     ),
                 minLines = 7,
                 maxLines = 7,
+                readOnly = true,
                 onValueChange = { },
             )
             Button(
-                onClick = { },
+                onClick = {},
                 modifier = Modifier.padding(top = 10.dp),
             ) {
                 Text("Next Generation")
